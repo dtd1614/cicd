@@ -28,4 +28,9 @@ public class PostService {
         Post post = postRepository.findById(id).orElseThrow(() -> new NotFoundException());
         return GetPostDto.toDto(post);
     }
+
+    public void deletePost(Long id) {
+        Post post = postRepository.findById(id).orElseThrow(() -> new NotFoundException());
+        postRepository.delete(post);
+    }
 }
